@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portail Support</title>
+  <style>
+    :root {
+      --bg1: #0f0f10;
+      --bg2: #17181a;
+      --card: #1e2126;
+      --text: #f6f7f9;
+      --muted: #a7adb8;
+      --accent: #3aa0ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+     body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      background:
+      url('https://www.e-docpro.fr/api/shared/document/662d0030-b0da-11f0-b9d8-a7245fd994d2/Plan%20de%20travail%201%202.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+
+    .wrapper {
+      width: min(1200px, 100%);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 1.5rem + 1vw, 2.3rem);
+      margin: 0 0 8px;
+    }
+
+    p.subtitle {
+      font-size: 0.95rem;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .panel {
+      background: linear-gradient(180deg, var(--bg2), var(--card));
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .panel h2 {
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      color: #e8ebf0;
+    }
+
+    .sub-title {
+      margin: 20px 0 10px 0;
+      font-size: 1rem;
+      color: var(--accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .sub-title:hover {
+      color: #74b9ff;
+    }
+
+    .grid-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1b1f25;
+      border-radius: 10px;
+      padding: 14px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: 0.25s;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .link:hover {
+      background: #222831;
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 14px rgba(58,160,255,0.25);
+    }
+
+    /* Style du bloc repliable */
+    .collapsible-content {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+      padding-top: 8px;
+    }
+
+    .collapsible-content.open {
+      overflow: visible;      /* ne clippe plus l’ombre quand la section est ouverte */
+      max-height: 500px; /* suffisamment grand pour contenir les liens */
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Portail Support Eukles</h1>
+      <p class="subtitle">Accès rapide aux ressources internes et externes</p>
+    </header>
+
+    <main class="columns">
+      <!-- Colonne 1 -->
+      <section class="panel">
+        <h2>Ressources internes</h2>
+        <div class="grid-links">
+          <a href="https://laplacedigitale.zendesk.com/agent/home/tickets?sort=newest" target="_blank" class="link">Zendesk</a>
+          <a href="https://ptf-ddi.atlassian.net/jira/for-you" target="_blank" class="link">Jira</a>
+          <a href="https://eukles.frycm.yeastarcloud.com/" target="_blank" class="link">Yeastar</a>
+          <a href="https://eukles.e-docpro.fr/" target="_blank" class="link">GED interne</a>
+          <a href="https://sesame.eukles.net/app/passwords" target="_blank" class="link">Passbolt</a>
+          <a href="https://intranet.eukles.com/" target="_blank" class="link">Intranet</a>
+          <a href=" https://agence-pure-illusion-eukles.odoo.com/" target="_blank" class="link">Odoo</a>
+        </div>
+        <div class="sub-section">
+          <h3 class="sub-title" id="toggle-autres-resoposte">Resoposte ▼</h3>
+          <div class="collapsible-content" id="autres-content-resoposte">
+            <div class="grid-links">
+              <a href="https://app.ar24.fr/fr/user/login" target="_blank" class="link">AR24</a>
+              <a href="https://connexion.maileva.com/espaceclient/login?redirect_uri=https://secure2.maileva.com/authentication/home/authenticate" target="_blank" class="link">Maileva</a>
+            </div>
+          </div>
+        </div>
+        <div class="sub-section">
+          <h3 class="sub-title" id="toggle-autres-ged">GED ▼</h3>
+          <div class="collapsible-content" id="autres-content-ged">
+            <div class="grid-links">
+              <a href="https://ptf-ddi.atlassian.net/projects/RGED?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&status=released-unreleased" target="_blank" class="link">Releases</a>
+              <a href="https://ptf-ddi.atlassian.net/wiki/spaces/GED/database/1930297390?atl_f=PAGETREE" target="_blank" class="link">Serveur & URLs</a>
+              <a href="https://gedeukles.zendesk.com/hc/fr/categories/12362851123228-Base-de-co-Interne" target="_blank" class="link">Base de co.</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Colonne 2 -->
+      <section class="panel">
+        <h2>Ressources externes</h2>
+
+        <div class="sub-section">
+          <div class="grid-links">
+            <a href="https://vpn-sn.docaposte.fr/" target="_blank" class="link">VPN Docaposte</a>
+            <a href="https://www.contralia.fr/Contralia/login/auth" target="_blank" class="link">Contralia</a>
+            <a href="https://manager.digiposte.fr/auth?returnUrl=%2Fs%2Fsa" target="_blank" class="link">Digiposte Manager</a>
+            <a href="https://app.brevo.com/" target="_blank" class="link">Brevo</a>
+            <a href="https://platform.mindee.com/" target="_blank" class="link">Mindee</a>
+            <a href="https://90.24.160.135:10443/urlnomodif.html" target="_blank" class="link">Liste GEDBox</a>
+          </div>
+        </div>
+
+        <div class="sub-section">
+          <h3 class="sub-title" id="toggle-autres">IA ▼</h3>
+          <div class="collapsible-content" id="autres-content">
+            <div class="grid-links">
+              <a href="https://m365.cloud.microsoft/chat/?auth=2" target="_blank" class="link">Copilot</a>
+              <a href="https://talk.app.demo.eukles.com/TALK/talk/ui" target="_blank" class="link">Talk</a>
+              <a href="https://chatgpt.com/" target="_blank" class="link">ChatGPT</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Portail Support — version 2025</p>
+    </footer>
+  </div>
+
+  <script>
+    // Gestion du dépliage/repliage de la section "Autres"
+    const toggle = document.getElementById('toggle-autres');
+    const content = document.getElementById('autres-content');
+
+    toggle.addEventListener('click', () => {
+      content.classList.toggle('open');
+      toggle.textContent = content.classList.contains('open') ? 'IA ▲' : 'IA ▼';
+    });
+
+    const toggleresoposte = document.getElementById('toggle-autres-resoposte');
+    const contentresoposte = document.getElementById('autres-content-resoposte');
+
+    toggleresoposte.addEventListener('click', () => {
+      contentresoposte.classList.toggle('open');
+      toggleresoposte.textContent = contentresoposte.classList.contains('open') ? 'Resoposte  ▲' : 'Resoposte  ▼';
+    });
+
+    const toggleged = document.getElementById('toggle-autres-ged');
+    const contentged = document.getElementById('autres-content-ged');
+
+    toggleged.addEventListener('click', () => {
+      contentged.classList.toggle('open');
+      toggleged.textContent = contentged.classList.contains('open') ? 'GED  ▲' : 'GED  ▼';
+    });
+  </script>
+
+</body>
+</html>
